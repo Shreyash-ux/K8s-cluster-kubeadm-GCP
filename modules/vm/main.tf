@@ -22,6 +22,11 @@ resource "google_compute_instance" "master" {
     }
   }
   metadata_startup_script = file("../scripts/master.sh")
+  lifecycle {
+    ignore_changes = [
+      metadata.ssh-keys
+    ]
+  }
 }
 
 
@@ -48,5 +53,10 @@ resource "google_compute_instance" "worker" {
     }
   }
   metadata_startup_script = file("../scripts/common.sh")
+  lifecycle {
+    ignore_changes = [
+      metadata.ssh-keys
+    ]
+  }
 
 }
