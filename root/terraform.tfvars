@@ -1,2 +1,2 @@
-project = "profound-saga-429312-r3"
+project = <project-id>
 region  = "us-central1"
