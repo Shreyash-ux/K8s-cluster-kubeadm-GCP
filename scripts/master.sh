@@ -80,7 +80,6 @@ sudo apt-get install -y jq
 local_ip="$(ip --json addr show ens4 | jq -r '.[0].addr_info[] | select(.family == "inet") | .local')"
 echo "KUBELET_EXTRA_ARGS=--node-ip=$local_ip" | sudo tee /etc/default/kubelet
 
-HOME="/home/shreyashkerekar"
 NODENAME=$(hostname -s)
 POD_CIDR="192.168.0.0/16"
 
